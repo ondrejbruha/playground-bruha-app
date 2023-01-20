@@ -1,0 +1,42 @@
+.table {
+    position: absolute;
+    top: 10vh;
+    background-color: var(--color-window);
+    height: 80vh;
+    width: 100vw;
+}
+table {
+    max-height: 80vh;
+    overflow: auto;
+    border-collapse: collapse;
+    display: inline-block;
+}
+tr {
+    background-color: var(--color-dark);
+}
+tr:hover {
+    background-color: var(--color-shadow);
+}
+td {
+    padding: 1rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--color-dark);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-altbase);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text);
+}

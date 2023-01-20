@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {Outlet, useNavigate} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let navigate = useNavigate();
+    return (
+        <div className="App">
+            <nav className={"nav"}>
+                <div className={"main-nav"}>
+                    <button onClick={() => {
+                        navigate("")
+                    }}>Home
+                    </button>
+                    <button onClick={() => {
+                        navigate("playground")
+                    }}>Play Ground
+                    </button>
+                </div>
+            </nav>
+            <Outlet/>
+        </div>
+    );
 }
 
 export default App;
