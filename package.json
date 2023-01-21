@@ -26,7 +26,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run start-server\" \"npm run start-front\" --kill-others",
+    "start": "concurrently \"npm run start-server\" \"serve -s build\"",
+    "dev": "concurrently \"npm run start-server\" \"npm run start-front\" --kill-others",
     "start-front": "react-scripts start",
     "start-server": "node ./server/bin/www",
     "build": "react-scripts build",
