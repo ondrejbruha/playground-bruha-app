@@ -1,10 +1,12 @@
 import "./sideBar.css";
-
-export default function SideBar(){
+import StatsSettings from "./statsSettings";
+import {useState} from "react";
+export default function SideBar({map, handleIndex, compute}){
+    const [statsSettings, handleStatsSettings] = useState(false);
     return(
         <div className={"side-bar"}>
-            <button>Table</button>
-            <button>Max</button>
+            {statsSettings ? <StatsSettings compute={compute} handleIndex={handleIndex} map={map} handleClose={handleStatsSettings}/> : null}
+            <button onClick={()=>{handleStatsSettings(true)}}>Stats</button>
         </div>
     );
 }

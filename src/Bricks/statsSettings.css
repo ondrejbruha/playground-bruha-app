@@ -1,0 +1,13 @@
+.stats-settings {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-dark);
+    top: 10vh;
+    left: 10vw;
+    z-index: 2;
+}
