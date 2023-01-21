@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/template-data', templateRouter);
 app.use("/statistics", statsRouter);
-app.use("/favicon.ico", indexRouter);
+app.use("/", express.static(path.join(__dirname,"..","build")));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
