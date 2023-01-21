@@ -1,7 +1,7 @@
 {
   "name": "playground_client",
   "homepage": "./",
-  "proxy": "https://api-playground-bruha-app.herokuapp.com/",
+  "proxy": "https://api-playground-bruha-app.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
