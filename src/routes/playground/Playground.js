@@ -10,7 +10,7 @@ export default function PlayGround() {
     const [columnIndex, setColumnIndex] = useState(0);
     const [statistics, setStatistics] = useState({});
     useEffect(() => {
-        fetch("template-data/random")
+        fetch("https://api-playground-bruha-app.herokuapp.com/template-data/random")
             .then(res => res.json())
             .then((data) => {
                 let table = new TableData();
