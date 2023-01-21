@@ -8,7 +8,6 @@ export default function Router(){
         <BrowserRouter>
             <Routes>
                 <Route path={"/"} element={<App/>}>
-                    <Route path={"favicon.ico"}></Route>
                     <Route path={""} element={<Home/>}></Route>
                     <Route path={"playground"} element={<PlayGround/>}></Route>
                 </Route>
