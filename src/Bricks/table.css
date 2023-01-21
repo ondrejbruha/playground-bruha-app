@@ -1,9 +1,10 @@
 .table {
     position: absolute;
     top: 10vh;
+    left: 10vw;
     background-color: var(--color-window);
     height: 80vh;
-    width: 100vw;
+    width: 90vw;
 }
 table {
     max-height: 80vh;

@@ -1,19 +1,14 @@
 import "./table.css"
-export default function Table({data}){
+export default function Table({tableData}){
     const makeTable = () => {
         let table = [];
-        for (let d of data) {
-            let tr = [];
-            for(let t of d){
-                tr.push(
-                    <td>{t}</td>
-                );
+        let rows = tableData.createRows();
+        for(let r of rows){
+            let row = [];
+            for(let d of r){
+                row.push(<td>{d}</td>);
             }
-            table.push(
-                <tr>
-                    {tr}
-                </tr>
-            );
+            table.push(<tr>{row}</tr>);
         }
         return table;
     };

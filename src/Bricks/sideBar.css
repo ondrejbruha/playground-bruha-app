@@ -1,0 +1,12 @@
+.side-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: var(--color-dark);
+    width: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
