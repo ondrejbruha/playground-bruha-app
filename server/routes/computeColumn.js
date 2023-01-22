@@ -17,5 +17,11 @@ router.post('/multiply', (req,res)=>{
 router.post('/divide', (req,res)=>{
     abl.divide(req,res);
 });
+router.post('/spectrum', (req,res)=>{
+    abl.spectrum(req,res);
+});
+router.post('/fourier-filter', (req,res)=>{
+    abl.fourierFilter(req,res);
+});
 
 module.exports = router;

@@ -54,5 +54,15 @@ class TemplateData {
         }
         return out;
     }
+    generateSin(ampl, freq, count){
+        if(freq <= 0) {
+            throw new Error("invalid edges");
+        }
+        let out = [];
+        for(let i = 0; i <count; i++){
+            out.push(Math.sin(i/freq)*ampl);
+        }
+        return out;
+    }
 }
 module.exports = TemplateData;

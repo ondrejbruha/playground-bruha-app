@@ -61,6 +61,21 @@ export default function AppendColumn({handleClose, tableData, handleTableData}){
             .then(response => response.json())
             .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
     }
+    const makeSin = () =>{
+        fetch("api/template-data/sin", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                a: Number(document.getElementById("s-a").value),
+                b: Number(document.getElementById("s-f").value),
+                count: tableData.countOfRows
+            }),
+        })
+            .then(response => response.json())
+            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+    }
 
     return(
         <div className={"append-column"}>
@@ -80,6 +95,10 @@ export default function AppendColumn({handleClose, tableData, handleTableData}){
             <div>
                 <label>PolyData: Min: <input id={"p-min"} type={"number"}/> Max: <input id={"p-max"} type={"number"}/> Exp: <input id={"p-exp"} type={"number"}/></label>
                 <button onClick={()=>{makePolynomial()}}>Append polynomial data</button>
+            </div>
+            <div>
+                <label>Sin: Ampl: <input id={"s-a"} type={"number"}/> Freq: <input id={"s-f"} type={"number"}/> </label>
+                <button onClick={()=>{makeSin()}}>Append sin data</button>
             </div>
         </div>
     );

@@ -81,6 +81,31 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             .then(response => response.json())
             .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
     }
+    const spectrum = ()=>{
+        fetch("api/compute/spectrum", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(tableData.getColumn(document.getElementById("spectrum").selectedIndex)),
+        })
+            .then(response => response.json())
+            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+    }
+    const fFilter = ()=>{
+        fetch("api/compute/fourier-filter", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                data: tableData.getColumn(document.getElementById("fourier-filter").selectedIndex),
+                edge: document.getElementById("edge").selectedIndex
+            }),
+        })
+            .then(response => response.json())
+            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+    }
     return(
         <div className={"compute-column"}>
             <select id={"compute-column1"}>
@@ -93,6 +118,15 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
                 {options}
             </select>
             <button onClick={()=>{compute()}}>Compute</button>
+            <select id={"spectrum"}>
+                {options}
+            </select>
+            <button onClick={()=>{spectrum()}}>Compute spectrum</button>
+            <select id={"fourier-filter"}>
+                {options}
+            </select>
+            <label>Edge: <input id={"edge"}/></label>
+            <button onClick={()=>{fFilter()}}>Compute fourier filter</button>
             <button onClick={()=>{handleClose(false)}}>Close</button>
         </div>
     );

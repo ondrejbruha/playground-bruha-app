@@ -39,5 +39,13 @@ router.post('/linear', (req, res)=>{
     }
     res.json(data.generateLinearData(req.body.min, req.body.max, req.body.count));
 });
+router.post('/sin', (req, res)=>{
+    if(!req.body ||  typeof req.body.a !== 'number' || typeof req.body.b !== 'number' || typeof req.body.count !== 'number'){
+        const e =  new Error("invalid input type");
+        res.status(400).send(e);
+        return;
+    }
+    res.json(data.generateSin(req.body.a, req.body.b, req.body.count));
+});
 
 module.exports = router;
