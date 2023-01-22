@@ -34,10 +34,11 @@ class TemplateData {
             throw new Error("invalid edges");
         }
         let range = max - min;
+        range = Math.pow(range, 1/exp);
         let step = range / count;
         let out = [];
         for(let i = 0; i < count; i++){
-            out.push(Math.pow(i*step,exp));
+            out.push(Math.pow(i*step,exp) + min);
         }
         return out;
     }
@@ -49,7 +50,7 @@ class TemplateData {
         let step = range / count;
         let out = [];
         for(let i = 0; i <count; i++){
-            out.push(i*step);
+            out.push(i*step + min);
         }
         return out;
     }
