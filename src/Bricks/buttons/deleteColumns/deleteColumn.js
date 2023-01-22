@@ -1,5 +1,5 @@
 import "./deleteColumn.css";
-import {TableData} from "../table/table";
+import {TableData} from "../../../tableData/tableData";
 
 export default function DeleteColumn({map, handleClose, handleTableData, tableData}){
     let options = [];

@@ -32,7 +32,9 @@
     --color-hover: rgb(180,180,180,10%);
 }
 
-
+body {
+    background-color: var(--color-window);
+}
 .App {
     width: 100vw;
     height: 100vh;

@@ -11,6 +11,7 @@
     height: 50vh;
     background-color: var(--color-dark);
     padding: 4rem;
+    box-shadow: 0 0 2rem 2rem var(--color-dark);
 }
 .stats-results div {
     padding: 2rem;

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Abl = require("../abl/statisticsAbl");
+const Abl = require("../abl/statistics/statisticsAbl");
 const abl = new Abl();
 
 /* GET home page. */

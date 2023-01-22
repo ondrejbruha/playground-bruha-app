@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import App from "../App";
 import Home from "./home/home";
-import PlayGround from "./playground/Playground";
+import Playground from "./playground/playground";
 
 export default function Router(){
     return(
@@ -9,7 +9,7 @@ export default function Router(){
             <Routes>
                 <Route path={"/"} element={<App/>}>
                     <Route path={""} element={<Home/>}></Route>
-                    <Route path={"playground"} element={<PlayGround/>}></Route>
+                    <Route path={"playground"} element={<Playground/>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

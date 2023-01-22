@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const templateRouter = require('./routes/template_data');
 const statsRouter = require("./routes/statistics");
+const computeRouter = require("./routes/computeColumn");
 
 const app = express();
 
@@ -21,9 +22,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/template-data', templateRouter);
-app.use("/statistics", statsRouter);
+app.use('/api/template-data', templateRouter);
+app.use("/api/statistics", statsRouter);
 app.use("/", express.static(path.join(__dirname,"..","build")));
+app.use("/api/compute", computeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

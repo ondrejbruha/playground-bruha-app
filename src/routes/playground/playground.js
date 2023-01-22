@@ -1,17 +1,18 @@
 import {useEffect, useState} from "react";
-import Table from "../../Bricks/table";
+import Table from "../../Bricks/table/table";
 import "./playground.css"
-import SideBar from "../../Bricks/sideBar";
-import StatsResults from "../../Bricks/statsResults";
-import {TableData} from "../../table/table";
+import SideBar from "../../Bricks/sideBar/sideBar";
+import StatsResults from "../../Bricks/results/statsResults";
+import {TableData} from "../../tableData/tableData";
 
-export default function PlayGround() {
+export default function Playground() {
     const [update, shouldUpdate] = useState(false);
     const [tableData, setTableData] = useState(new TableData());
     const [columnIndex, setColumnIndex] = useState(0);
     const [statistics, setStatistics] = useState({});
+    const [showStats, handleStats] = useState(true);
     useEffect(() => {
-        fetch("template-data/random")
+        fetch("api/template-data/random-old")
             .then(res => res.json())
             .then((data) => {
                 let table = new TableData();
@@ -27,7 +28,7 @@ export default function PlayGround() {
 
     const getStats = async ()=>{
         let stats = {};
-        fetch("statistics/max", {
+        fetch("api/statistics/max", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -37,7 +38,7 @@ export default function PlayGround() {
             .then(response => response.json())
             .then(data => stats.max = data);
 
-        fetch("statistics/min", {
+        fetch("api/statistics/min", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +48,7 @@ export default function PlayGround() {
             .then(response => response.json())
             .then(data => stats.min = data);
 
-        fetch("statistics/mean", {
+        fetch("api/statistics/mean", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +58,7 @@ export default function PlayGround() {
             .then(response => response.json())
             .then(data => stats.mean = data);
 
-        fetch("statistics/median", {
+        fetch("api/statistics/median", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -74,9 +75,9 @@ export default function PlayGround() {
 
     return (
         <div className={"play-ground"}>
-            <SideBar handleTableData={setTableData} tableData={tableData} compute={getStats} map={map} handleIndex={setColumnIndex} handleUpdate={[update, shouldUpdate]}/>
+            <SideBar handleStats={handleStats} handleTableData={setTableData} tableData={tableData} compute={getStats} map={map} handleIndex={setColumnIndex} handleUpdate={[update, shouldUpdate]}/>
             <Table tableData={tableData}/>
-            <StatsResults stats={statistics}/>
+            {showStats ? <StatsResults stats={statistics} handleStats={handleStats}/> : null}
         </div>
     );
 }

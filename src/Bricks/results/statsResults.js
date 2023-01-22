@@ -1,11 +1,8 @@
 import "./statsResults.css";
-import {useState} from "react";
-export default function StatsResults({stats}){
-    const [state, setState] = useState(false);
-
+export default function StatsResults({stats, handleStats}){
     return(
         <div className={"stats-results"}>
-            <button onClick={()=>{setState(!state)}}>Update</button>
+            <button onClick={()=>{handleStats(false)}}>Hide</button>
             <div>Max: {stats.max}</div>
             <div>Min: {stats.min}</div>
             <div>Mean: {stats.mean}</div>
