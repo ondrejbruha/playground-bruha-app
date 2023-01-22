@@ -50,4 +50,16 @@ export class TableData{
     getColumn(i){
         return this.columns[i];
     }
+    deleteColumn(index){
+        if(this.countOfColumns === 1){
+            return;
+        }
+        let columns = [];
+        for(let i = 0; i < this.countOfColumns;i++){
+            if(i !== index){
+                columns.push(this.getColumn(i));
+            }
+        }
+        return columns;
+    }
 }
