@@ -125,7 +125,7 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             <select id={"fourier-filter"}>
                 {options}
             </select>
-            <label>Edge: <input id={"edge"}/></label>
+            <label>Edge: <input type={"number"} id={"edge"}/></label>
             <button onClick={()=>{fFilter()}}>Compute fourier filter</button>
             <button onClick={()=>{handleClose(false)}}>Close</button>
         </div>
