@@ -1,5 +1,5 @@
 {
-  "name": "playground_client",
+  "name": "playground_bruha_app",
   "homepage": "./",
   "proxy": "http://localhost:8000",
   "version": "0.1.0",
@@ -39,10 +39,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "engines": {
-    "node": "18.12.1",
-    "npm": "8.19.2"
   },
   "browserslist": {
     "production": [

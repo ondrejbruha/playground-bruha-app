@@ -1,0 +1,9 @@
+.append-column {
+    width: 40vw;
+    height: 40vh;
+    position: fixed;
+    top: 10vh;
+    left: 10vw;
+    background-color: var(--color-dark);
+    z-index: 2;
+}

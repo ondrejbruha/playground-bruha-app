@@ -6,6 +6,7 @@ import StatsResults from "../../Bricks/statsResults";
 import {TableData} from "../../table/table";
 
 export default function PlayGround() {
+    const [update, shouldUpdate] = useState(false);
     const [tableData, setTableData] = useState(new TableData());
     const [columnIndex, setColumnIndex] = useState(0);
     const [statistics, setStatistics] = useState({});
@@ -73,7 +74,7 @@ export default function PlayGround() {
 
     return (
         <div className={"play-ground"}>
-            <SideBar compute={getStats} map={map} handleIndex={setColumnIndex}/>
+            <SideBar handleTableData={setTableData} tableData={tableData} compute={getStats} map={map} handleIndex={setColumnIndex} handleUpdate={[update, shouldUpdate]}/>
             <Table tableData={tableData}/>
             <StatsResults stats={statistics}/>
         </div>
