@@ -1,0 +1,12 @@
+.line-plot {
+    width: 40vw;
+    height: 40vh;
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+    background-color: var(--color-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

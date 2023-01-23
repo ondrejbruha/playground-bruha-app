@@ -14,8 +14,8 @@ export default function SideBar({map, handleIndex, compute, handleTableData, tab
             {computeColumn ? <ComputeColumn handleTableData={handleTableData} tableData={tableData} map={map} handleClose={handleComputeColumn}/> : null}
             {deleteColumn ? <DeleteColumn handleTableData={handleTableData} tableData={tableData} map={map} handleClose={handleDeleteColumn}/> : null}
             {appendColumn ? <AppendColumn handleTableData={handleTableData} handleClose={handleAppendColumn} tableData={tableData}/> : null}
-            {statsSettings ? <StatsSettings compute={compute} handleIndex={handleIndex} map={map} handleClose={handleStatsSettings}/> : null}
-            <button onClick={()=>{handleStatsSettings(true)}}>Stats</button>
+            {statsSettings ? <StatsSettings tableData={tableData} compute={compute} handleIndex={handleIndex} map={map} handleClose={handleStatsSettings}/> : null}
+            <button onClick={()=>{handleStatsSettings(true)}}>Results</button>
             <button onClick={()=>{handleAppendColumn(true)}}>Append column</button>
             <button onClick={()=>{handleDeleteColumn(true)}}>Delete column</button>
             <button onClick={()=>{handleComputeColumn(true)}}>Compute column</button>
