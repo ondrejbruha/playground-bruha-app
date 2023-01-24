@@ -17,6 +17,7 @@ export default function Playground() {
             .then((data) => {
                 let table = new TableData();
                 table.appendColumn(data);
+                table.createIndexColumn();
                 setTableData(table);
             });
     }, []);

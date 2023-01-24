@@ -20,13 +20,17 @@ export class TableData{
         this.columns.push(column);
         this.update();
     }
-    creteIndexColumn(){
+    prependColumn(column){
+        this.columns.unshift(column);
+        this.update();
+    }
+    createIndexColumn(){
         let indexColumn = [];
         for(let i = 0; i < this.countOfRows; i++){
             indexColumn.push(i);
         }
-        this.appendColumn(indexColumn);
-        this.countOfColumns = this.columns.length;
+        this.prependColumn(indexColumn);
+        this.update();
     }
     update(){
         this.countOfColumns = this.columns ? this.columns.length : 0;

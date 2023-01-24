@@ -7,7 +7,7 @@ export default function Table({tableData}){
         for(let r of rows){
             let row = [];
             for(let d of r){
-                row.push(<td className={"index"}>{counter}</td>);
+                //row.push(<td className={"index"}>{counter}</td>);
                 row.push(<td>{d}</td>);
             }
             table.push(<tr>{row}</tr>);
@@ -18,7 +18,7 @@ export default function Table({tableData}){
     const makeTableHeader = ()=>{
         let tableHeader = [];
         for(let i = 0; i < tableData.countOfColumns; i++){
-            tableHeader.push(<td>Row</td>);
+            //tableHeader.push(<td>Row</td>);
             tableHeader.push(<td>Column: {i}</td>)
         }
         return tableHeader;
