@@ -1,4 +1,5 @@
 import "./appendColumn.css";
+import {TableData} from "../../../tableData/tableData";
 export default function AppendColumn({handleClose, tableData, handleTableData}){
     console.log(tableData);
     const makeNois = () =>{
@@ -14,7 +15,7 @@ export default function AppendColumn({handleClose, tableData, handleTableData}){
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const makeLinear = () =>{
         fetch("api/template-data/linear", {
@@ -29,7 +30,7 @@ export default function AppendColumn({handleClose, tableData, handleTableData}){
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const makePolynomial = () =>{
         fetch("api/template-data/polynomial", {
@@ -45,7 +46,7 @@ export default function AppendColumn({handleClose, tableData, handleTableData}){
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const makeConst = () =>{
         fetch("api/template-data/constant", {
@@ -59,7 +60,7 @@ export default function AppendColumn({handleClose, tableData, handleTableData}){
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const makeSin = () =>{
         fetch("api/template-data/sin", {
@@ -74,7 +75,7 @@ export default function AppendColumn({handleClose, tableData, handleTableData}){
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
 
     return(

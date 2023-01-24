@@ -1,4 +1,5 @@
 import "./computeColumn.css";
+import {TableData} from "../../../tableData/tableData";
 
 export default function ComputeColumn({map, handleClose, handleTableData, tableData}){
     let options = [];
@@ -37,7 +38,7 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const minus = (a,b)=>{
         fetch("api/compute/minus", {
@@ -51,7 +52,7 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const multiply = (a,b)=>{
         fetch("api/compute/multiply", {
@@ -65,7 +66,7 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const divide = (a,b)=>{
         fetch("api/compute/divide", {
@@ -79,7 +80,7 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const spectrum = ()=>{
         fetch("api/compute/spectrum", {
@@ -90,7 +91,7 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             body: JSON.stringify(tableData.getColumn(document.getElementById("spectrum").selectedIndex)),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     const fFilter = ()=>{
         fetch("api/compute/fourier-filter", {
@@ -104,7 +105,7 @@ export default function ComputeColumn({map, handleClose, handleTableData, tableD
             }),
         })
             .then(response => response.json())
-            .then((data)=>{tableData.appendColumn(data);handleTableData(tableData)});
+            .then((data)=>{tableData.appendColumn(data);handleTableData(new TableData(tableData.columns))});
     }
     return(
         <div className={"compute-column"}>
